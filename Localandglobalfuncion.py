@@ -31,14 +31,17 @@ yes.m4()
 
 
 '''
-a = 1
-class abc:
+class B:
     def __init__(self):
-        pass
-    def f(x):
-        a = 2 # local variable
-        print(locals(),a)
-        print(globals()['a'])
-f(10)
-
+        self.a = 3 # class attribute
+    def scopes(self):
+        a = 4 # local (method) variable
+        print('locals:', locals())
+        print('vars(self):', vars(self))
+        print('self.a:', self.a)
+        print(a)
+        print('local a:', a, 'global a:', globals()['a'])
+b=B()
+b.scopes()
+#b.scopes()
 '''
